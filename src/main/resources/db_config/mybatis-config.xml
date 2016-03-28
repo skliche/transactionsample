@@ -7,6 +7,6 @@
 		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
 	<mappers>
-		<mapper resource="mapper/IntegrationMapper.xml" />
+		<mapper resource="mapper/SampleDbMapper.xml" />
 	</mappers>
 </configuration>
