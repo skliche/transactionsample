@@ -28,6 +28,7 @@ public class Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		LOG.info("starting the app...");
 		
-		userService.register();
+		// just register a demo user
+		userService.register("demouser", "demopass");
 	}
 }
