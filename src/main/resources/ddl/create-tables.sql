@@ -1,0 +1,8 @@
+CREATE TABLE users (
+  userid varchar(16) NOT NULL,
+  passwd char(41) NOT NULL,
+  create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+
+CREATE TABLE logs (
+  entry varchar(500) NOT NULL,
+  create_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
