@@ -22,12 +22,12 @@
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="configLocation" value="classpath:/db_config/mybatis-config.xml" />
+		<property name="configLocation" value="classpath:/mybatis-config.xml" />
 	</bean>
 	
 	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.company.service" />
-		<property name="sqlSessionFactoryBeanName" ref="sqlSessionFactory" />
+		<property name="basePackage" value="com.company.dao" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean> 
 	
 	<bean id="yamlProperties" class="org.springframework.beans.factory.config.YamlPropertiesFactoryBean"/>
