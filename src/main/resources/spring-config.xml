@@ -6,7 +6,8 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-	 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<bean id="dataSource" depends-on="yamlProperties" 
 		class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"
@@ -16,7 +17,7 @@
 		p:maxIdle="10" p:minIdle="3" p:maxWait="10000" p:removeAbandoned="true"
 		p:removeAbandonedTimeout="30" p:validationQuery="/* ping */ SELECT 1" />
 
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
@@ -32,4 +33,5 @@
 	
 	<bean id="yamlProperties" class="org.springframework.beans.factory.config.YamlPropertiesFactoryBean"/>
 	<context:property-placeholder properties-ref="yamlProperties" />
+	<tx:annotation-driven/>
 </beans>
